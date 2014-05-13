@@ -1,7 +1,7 @@
 //console.log('Hello world, nodejs');
 var http = require('http')
 var port = process.env.PORT || 3000;
-var host = process.env.HOST || '0.0.0.0';
+var host = process.env.HOST || '127.0.0.1';
 
 var fs    = require('fs'),
     nconf = require('nconf');
@@ -31,7 +31,7 @@ nconf.set('database:port', 5984);
 
 http.createServer(function(req, res) {
     res.writeHead(200, { 'Content-Type': 'text/plain' });
-    res.end('Hello World from NodeJs\n');
+//    res.end('Hello World from NodeJs\n');
     res.write('foo: ' + nconf.get('foo'));
     res.write('NODE_ENV: ' + nconf.get('NODE_ENV'));
     res.write('database: ' + nconf.get('database'));
